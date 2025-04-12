@@ -42,7 +42,7 @@ export default function Resume({ name, email }: ResumeProps) {
   };
 
   return (
-    <div className="max-w-4xl mx-auto bg-white text-gray-900 p-8 rounded-3xl shadow-xl space-y-10">
+    <div className="max-w-4xl mx-auto bg-white text-gray-900 p-8 rounded-3xl  space-y-10">
       {/* Header */}
       <header className="text-center space-y-2">
         <h1 className="text-4xl font-bold tracking-tight">{name}</h1>
@@ -57,6 +57,19 @@ export default function Resume({ name, email }: ResumeProps) {
         </div>
       </header>
       {/* Education Section */}
+      <section>
+        <h2 className="text-2xl font-semibold pb-2 border-b mb-6">
+          Career Objective
+        </h2>
+        <p className="text-black">
+          I am {name}, a passionate and results-driven software professional
+          seeking to contribute my skills in software development,
+          problem-solving, and innovation to a forward-thinking tech company. My
+          goal is to work on cutting-edge technologies, build scalable
+          solutions, and continuously grow both technically and professionally
+          within a collaborative and dynamic engineering team.
+        </p>
+      </section>
       <section>
         <h2 className="text-2xl font-semibold pb-2 border-b mb-6">Education</h2>
 
