@@ -43,9 +43,6 @@ const page = async ({ params }: RouteParams) => {
 
         {/* Interview Breakdown */}
         <div className="space-y-4">
-          <h2 className="text-2xl font-semibold text-gray-800">
-            Interview Breakdown
-          </h2>
           <div className="space-y-4">
             {feedback?.categoryScores?.map((category, index) => (
               <div
@@ -76,7 +73,7 @@ const page = async ({ params }: RouteParams) => {
             />{" "}
             Strengths
           </h3>
-          <ul className="list-disc list-inside text-gray-700">
+          <ul className="list-disc list-inside text-black">
             {feedback?.strengths?.map((strength, index) => (
               <li key={index}>{strength}</li>
             ))}
