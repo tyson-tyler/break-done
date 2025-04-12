@@ -9,6 +9,7 @@ import Donwload from "@/public/donwload.svg";
 
 import React from "react";
 import BadgeCheck from "@/public/bade.svg";
+import Ex from "@/public/ex.svg";
 
 import Image from "next/image";
 import Tech from "@/public/tec.svg";
@@ -25,48 +26,22 @@ const page = async ({ params }: RouteParams) => {
     interviewId: id,
     userId: user?.id!,
   });
-  const handelLink = () => {
-    if (!interview?.role) return;
-    const query = encodeURIComponent(interview.role);
-    const linkedInUrl = `https://www.linkedin.com/jobs/search/?keywords=${query}`;
-    window.open(linkedInUrl, "_blank");
-  };
+
   return (
     <>
       <div className="px-6 py-10 max-w-4xl photoclick mx-auto bg-white shadow-2xl rounded-2xl">
-        <div className="text-center mt-2.5">
-          <h1 className="text-4xl font-bold text-gray-800">
-            Position for{" "}
-            <span className="capitalize text-indigo-600">
-              {interview?.role}
-            </span>
-          </h1>
-        </div>
+        <div className="text-center mt-2.5"></div>
 
-        <Resume name={user?.name || ""} email={user?.email || ""} />
+        <Resume
+          name={user?.name || ""}
+          email={user?.email || ""}
+          iterview={interview?.role}
+        />
 
         <section className="space-y-8">
           {/* Header */}
 
           {/* Final Assessment */}
-
-          <div className="space-y-3">
-            <h3 className="text-xl font-semibold text-green-700 flex items-center gap-2">
-              <Image
-                src={BadgeCheck}
-                alt="hello"
-                width={20}
-                height={20}
-                className="w-5 h-5"
-              />{" "}
-              Strengths
-            </h3>
-            <ul className="list-disc list-inside text-black">
-              {feedback?.strengths?.map((strength, index) => (
-                <li key={index}>{strength}</li>
-              ))}
-            </ul>
-          </div>
 
           {/* Interview Breakdown */}
           <div className="space-y-4">
@@ -101,6 +76,40 @@ const page = async ({ params }: RouteParams) => {
             <span className="capitalize text-indigo-600">
               {interview?.techstack} {""}
             </span>
+          </div>
+          <div className="space-y-3">
+            <h3 className="text-xl font-semibold text-blue-500 flex items-center gap-2">
+              <Image
+                src={Ex}
+                alt="hello"
+                width={20}
+                height={20}
+                className="w-5 h-5"
+              />{" "}
+              Experience
+            </h3>
+            <span className="capitalize text-indigo-600">
+              {interview?.level} {""}
+            </span>
+          </div>
+          <div className="space-y-3">
+            <h3 className="text-xl font-semibold text-green-700 flex items-center gap-2">
+              <Image
+                src={BadgeCheck}
+                alt="hello"
+                width={20}
+                height={20}
+                className="w-5 h-5"
+              />{" "}
+              Strengths
+            </h3>
+            <ul className="list-disc list-inside text-black">
+              {feedback?.strengths?.map((strength, index) => (
+                <li key={index} className="text-black">
+                  {strength}
+                </li>
+              ))}
+            </ul>
           </div>
 
           {/* Strengths */}

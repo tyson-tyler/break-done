@@ -332,3 +332,6 @@
     transform: translateY(0);
   }
 }
+.photoclick {
+  color: oklch(62.2345% 0.159 233.4);
+}

@@ -4,6 +4,8 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Donwload from "@/public/donwload.svg";
 import Linked from "@/public/Link.svg";
+import html2canvas from "html2canvas";
+import jsPDF from "jspdf";
 
 interface Props {
   role: string;
@@ -18,8 +20,17 @@ const ClientButtons = ({ role }: Props) => {
   };
 
   const handleDownload = () => {
-    // Your logic to download an image/pdf
-    alert("Download triggered!"); // Replace this with html2canvas logic if needed
+    const element = document.querySelector(".photoclick") as HTMLElement;
+    if (!element) return;
+
+    html2canvas(element, {
+      backgroundColor: null, // or any fallback like "#fff"
+    }).then((canvas) => {
+      const link = document.createElement("a");
+      link.download = "interview-report.png";
+      link.href = canvas.toDataURL("image/png");
+      link.click();
+    });
   };
 
   return (

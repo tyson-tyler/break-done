@@ -5,6 +5,7 @@ import { Button } from "./button";
 interface ResumeProps {
   name: string;
   email: string;
+  interview: string;
 }
 
 interface Education {
@@ -14,7 +15,7 @@ interface Education {
   date: string;
 }
 
-export default function Resume({ name, email }: ResumeProps) {
+export default function Resume({ name, email, iterview }: ResumeProps) {
   const [userEducation, setUserEducation] = useState<Education[]>([]);
 
   const [degree, setDegree] = useState("");
@@ -45,7 +46,7 @@ export default function Resume({ name, email }: ResumeProps) {
     <div className="max-w-4xl mx-auto bg-white text-gray-900 p-8 rounded-3xl  space-y-10">
       {/* Header */}
       <header className="text-center space-y-2">
-        <h1 className="text-4xl font-bold tracking-tight">{name}</h1>
+        <h1 className="text-4xl font-bold tracking-tight capitalize">{name}</h1>
         <p className="text-sm text-gray-600">Email: {email}</p>
         <div className="flex justify-center gap-4 text-blue-600 underline text-sm font-medium">
           <a href="https://rushi07.github.io/" target="_blank">
@@ -62,7 +63,7 @@ export default function Resume({ name, email }: ResumeProps) {
           Career Objective
         </h2>
         <p className="text-black">
-          I am {name}, a passionate and results-driven software professional
+          I am {name}, a passionate and results-driven {iterview} professional
           seeking to contribute my skills in software development,
           problem-solving, and innovation to a forward-thinking tech company. My
           goal is to work on cutting-edge technologies, build scalable
