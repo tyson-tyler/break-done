@@ -111,6 +111,13 @@ const Feedback = async ({ params }: RouteParams) => {
             </p>
           </Link>
         </Button>
+        <Button className="btn-secondary text-white bg-transparent hover:btn-primary border-2 border-purple-400 flex-1">
+          <Link href={`/resume/${id}`} className="flex w-full justify-center">
+            <p className="text-sm font-semibold  text-center">
+              Check Your Resume
+            </p>
+          </Link>
+        </Button>
       </div>
     </section>
   );
